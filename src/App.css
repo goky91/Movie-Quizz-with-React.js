@@ -29,26 +29,33 @@ body, #root, .App {
     left: 5px;
     top: 10px;
     z-index: 2;
+    transition: left, 0.7s;
 }
 
 .navigation__sidebar {
-    width: 0%;
+    width: 20%;
     height: 100vh;
     background: rgb(231,231,231);
     background: linear-gradient(150deg, rgba(231,231,231,1) 21%, rgba(241,239,239,1) 21%);
-    transition: width, 0.7s;
+    transition: left, 0.7s;
     position: absolute;
+    left: -21%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     color: black;
     align-items: center;
+    box-shadow: 10px 0px 5px -2px rgba(0,0,0,0.58);
 }
 
-.navigation__sidebar-open {
-    width: 20%;
-    transition: width, 0.7s;
-    box-shadow: 10px 0px 5px -2px rgba(0,0,0,0.58);
+.navigation__sidebar-open .navigation__sidebar {
+    left: 0%;
+    transition: left, 0.7s;
+}
+
+.navigation__sidebar-open .navigation__hamburger {
+    left: 23%;
+    transition: left, 0.7s;
 }
 
 .sidebar__profile-photo {
@@ -65,6 +72,16 @@ body, #root, .App {
     height: 85%;
     background: rgb(241,239,239);
     background: radial-gradient(circle, rgba(241,239,239,1) 45%, rgba(186,186,186,1) 100%);
+}
+
+.gc-lose {
+    background: rgb(241,239,239);
+    background: radial-gradient(circle, rgba(241,239,239,1) 45%, rgb(186, 59, 60) 100%);
+}
+
+.gc-win {
+    background: rgb(241,239,239);
+    background: radial-gradient(circle, rgba(241,239,239,1) 45%, rgb(31, 116, 39) 100%);
 }
 
 .game-container__dojo {
@@ -133,6 +150,10 @@ body, #root, .App {
     margin-top: 70px;
     font-weight: 800;
     animation: grow-shrink 1s infinite ease-in-out alternate-reverse;
+}
+
+.hidden .card__result {
+    visibility: hidden;
 }
 
 @keyframes grow-shrink {
