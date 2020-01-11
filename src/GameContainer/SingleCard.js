@@ -1,16 +1,13 @@
-import React, {Component} from "react";
+import React from "react";
 
-class SingleCard extends Component {
-
-    render() {
+const SingleCard = (props) => {
         return (
-            <div onClick={this.props.click} className={"cards-container__card " + this.props.number}>
+            <div onClick={props.click} className={"cards-container__card"}>
                 <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/6ApDtO7xaWAfPqfi2IARXIzj8QS.jpg" className="card__poster" />
                 <div className="card__title">Ford v Ferrary</div>
-                <div className={"card__result " + this.props.visible} >{this.props.children}</div>
+                <div className={"card__result " + props.number} >{props.cardValue}</div>
             </div>
         );
-    }
 }
 
 export default SingleCard;
