@@ -1,9 +1,9 @@
 import React from 'react';
 
 import './App.css';
-import Navigation from "./Navigation/Navigation";
-import GameContainer from "./GameContainer/GameContainer";
-import Footer from "./Footer/Footer";
+import Navigation from "./Containers/Navigation"
+import GameContainer from "./Containers/GameContainer";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
