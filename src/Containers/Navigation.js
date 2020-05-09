@@ -1,39 +1,36 @@
-import React, {Component} from "react";
-import Sidebar from "./Sidebar";
+import React, {useState} from "react";
+
+import Sidebar from "../Components/Sidebar";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-class Navigation extends Component {
+const Navigation = () => {
+    //state
+    const [menuIcon, toggleIcon] = useState(faBars);
+    const [sidebarStatus, changeSidebarStatus] = useState('');
 
-    state = {
-           menuIcon: faBars,
-           sidebarStatus: ''
-    }
-
-    toggleSidebar = () => {
-        if ( this.state.sidebarStatus === '' ) {
-            this.setState({
-                menuIcon: faTimes,
-                sidebarStatus: 'navigation__sidebar-open'
-            });
-        } else {
-            this.setState({
-                menuIcon: faBars,
-                sidebarStatus: ''
-            });
+    //state handler
+    const toggleSidebar = () => {
+            if ( sidebarStatus === '' ) {
+                toggleIcon(faTimes);
+                changeSidebarStatus('navigation__sidebar-open');
+            } else {
+                toggleIcon(faBars);
+                changeSidebarStatus('');
+            }
         }
-    }
 
-    render() {
-        return (
-            <nav className={"navigation " + this.state.sidebarStatus}>
-                <FontAwesomeIcon icon={this.state.menuIcon} onClick={this.toggleSidebar} className="navigation__hamburger" />
-                <Sidebar />
-                <h1 className="navigation__title">Compare Movies Info Game</h1>
-            </nav>
-        );
-    }
-}
+    //generate sidebar and hamburger menu
+    return (
+        <nav className={"navigation " + sidebarStatus}>
+            <FontAwesomeIcon icon={menuIcon} onClick={toggleSidebar} className="navigation__hamburger" />
+            <Sidebar />
+            <h1 className="navigation__title">Compare Movies Info Game</h1>
+        </nav>
+    );
+    
+};
 
 export default Navigation;
