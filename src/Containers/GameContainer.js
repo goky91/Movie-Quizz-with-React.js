@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 
-import {MovieCard} from '../Services/GenerateMovieCard';
 import SingleCard from '../Components/SingleCard';
 
 const GameContainer = () => {
@@ -11,22 +10,24 @@ const GameContainer = () => {
     const [winnerCard, setWinnerCard] = useState(0);
 
     //generate two cards
-    let cardOne = new MovieCard;
-    let cardTwo = new MovieCard;
+    const cardA = Math.floor(Math.random() * 100);
+    const cardB = Math.floor(Math.random() * 100);
 
-                            // CONTINUE HERE
-                            
-                            // const generateNew = () => {
-                            //     cardOne = new MovieCard;
-                            // }
+    const cardsList = [cardA, cardB];
+
+    const newCards = cardsList.map( (cardId, cardOrder) => {
+        return (
+            <SingleCard key={cardOrder} id={cardId} />
+        );
+    });
+    
 
     //generate elements
         return (
             <section className={"game-container " + gameStatus} >
                 <div className="game-container__dojo">
                     <section className={"game-container-dojo__cards-container"}>
-                        <SingleCard id={cardOne.id} poster={cardOne.poster} title={cardOne.title} rating={cardOne.rating} />
-                        <SingleCard id={cardTwo.id} poster={cardTwo.poster} title={cardTwo.title} rating={cardTwo.rating} />
+                        {newCards}
                     </section>
                 </div>
             </section>
