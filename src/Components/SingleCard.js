@@ -8,7 +8,9 @@ const SingleCard = (props) => {
 
     useEffect( () => {
         // API key is stored in separate file .env as an environmental variable
-        const API_KEY = `${process.env.REACT_APP_API_KEY}`;
+        // const API_KEY = `${process.env.REACT_APP_API_KEY}`;
+
+        const API_KEY = "54e4b3f735dc7e796075865340b11815";
         console.log(API_KEY);
 
         // Make new http request with id prop
@@ -31,7 +33,7 @@ const SingleCard = (props) => {
 
     return (
         <div onClick={props.click} className="cards-container__card">
-            <img src={card.imgSrc} className="card__poster" />
+            <img src={card.imgSrc} className="card__poster flip-in-diag-2-br" />
             <div className="card__title">{card.title}</div>
             <div className={"card__result"}>{card.rating}</div>
         </div>
