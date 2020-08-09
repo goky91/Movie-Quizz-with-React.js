@@ -29,11 +29,9 @@ const GameContainer = () => {
     //generate elements
         return (
             <section className={"game-container " + gameStatus} >
-                <div className="game-container__dojo">
-                    <section className={"game-container-dojo__cards-container " + cardsResultsVisibility}>
-                        {newCards}
-                    </section>
-                </div>
+                <section className={"cards-container " + cardsResultsVisibility}>
+                    {newCards}
+                </section>
             </section>
         );
 };
